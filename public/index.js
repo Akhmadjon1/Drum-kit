@@ -3,13 +3,13 @@
 
 
 var buttons = document.querySelectorAll(".drum").length;
-
+console.log("buttons: ", buttons);
 for (var i = 0; i < buttons ; i++) {
 
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-        
-    var buttonInnerHTML = this.innerHTML;
 
+        var buttonInnerHTML = this.innerHTML;
+        console.log("button inner HTML: ", buttonInnerHTML);
         makeSound(buttonInnerHTML);
 
         buttonAnimation(buttonInnerHTML);
@@ -35,6 +35,7 @@ document.addEventListener("keypress", function(event){
 
 function makeSound(key) {
 
+
     switch (key) {
         case "w":
             var tom1 = new Audio("/sounds/tom-1.mp3");
@@ -59,16 +60,17 @@ function makeSound(key) {
         case "j":
             var snare = new Audio("/sounds/snare.mp3");
             snare.play();
+            break;
 
         case "k":
             var crash = new Audio("/sounds/crash.mp3");
             crash.play();
-
+            break;
         case "l":
             var kick = new Audio("/sounds/kick-bass.mp3");
             kick.play();
-
-           default: console.log(buttonInnerHTML);
+            break
+           default: console.log("error");
     }
 
 }
